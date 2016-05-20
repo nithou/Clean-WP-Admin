@@ -64,17 +64,6 @@ function my_dashboard_widget_display() {
     <?php
 }
 
-/* Remove theme deactivation */
-
-add_filter( 'plugin_action_links', 'bsb_disable_plugin_actions', 10, 4 );
-
-function bsb_disable_plugin_actions( $actions, $plugin_file, $plugin_data, $context ) {
-	$plugins = array( 'advanced-custom-fields-pro/acf.php' );
-	if ( array_key_exists( 'deactivate', $actions ) && in_array( $plugin_file, $plugins ))
-		unset( $actions['deactivate'] );
-	return $actions;
-}
-
 /* Redirect users to front page after login */
 
 function acme_login_redirect( $redirect_to, $request, $user  ) {
